@@ -1,19 +1,9 @@
 //Задача № 1
   class Cache extends Map {
-  get maxSize() {
-    return this._maxSize || 10
-  }
-
-  set maxSize(value) {
-    value = parseInt(value);
-    if (!isNaN(value) && value > 0) {
-      this._maxSize = value;
-    }
-    return this
-  }
+  maxSize = 10;
 
   set() {
-    if (this.size === this.maxSize) { 
+    if (this.size >= this.maxSize) { 
       this.shift()
     }
     super.set.apply(this, arguments)
